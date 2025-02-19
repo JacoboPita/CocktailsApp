@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/page_inicio">
+
+    <fragment
+        android:id="@id/page_inicio"
+        android:name="com.example.cocktails.InicioFragment"
+        tools:layout="@layout/fragment_inicio"/>
+
+    <fragment
+        android:id="@id/page_perfil"
+        android:name="com.example.cocktails.PerfilFragment"
+        tools:layout="@layout/fragment_perfil"/>
+
+    <fragment
+        android:id="@id/page_buscador"
+        android:name="com.example.cocktails.BuscadorFragment"
+        tools:layout="@layout/fragment_buscador"/>
+
+
+</navigation>

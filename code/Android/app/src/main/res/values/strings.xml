@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Cocktails</string>
+
+    <!--Profile View-->
+    <string name="profile_title">Perfil</string>
+    <string name="user_username">USERNAME</string>
+    <string name="create_cocktail">Crear un cocktail</string>
+    <string name="see_cocktails">Ver tus cocktails</string>
+</resources>

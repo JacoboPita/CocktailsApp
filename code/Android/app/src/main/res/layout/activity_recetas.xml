@@ -1,0 +1,523 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create your cocktail"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:fontFamily="cursive"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="0dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="#FFFFFF"
+            android:elevation="2dp">
+
+            <!-- Campo para el nombre del cóctel -->
+            <TextView
+                android:id="@+id/cocktailNameTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Cocktail name:"
+                android:textSize="18sp"
+                android:textColor="#333333"
+                android:paddingBottom="8dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <EditText
+                android:id="@+id/cocktailNameEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:inputType="text"
+                android:hint="Example: Margarita"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@id/cocktailNameTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Campo para las instrucciones -->
+            <TextView
+                android:id="@+id/instructionsTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Instructions:"
+                android:textSize="18sp"
+                android:textColor="#333333"
+                android:paddingBottom="8dp"
+                app:layout_constraintTop_toBottomOf="@id/cocktailNameEditText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <EditText
+                android:id="@+id/instructionsEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="Example: Mix all the ingredients..."
+                android:maxLines="5"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@id/instructionsTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Ingredientes y cantidades -->
+            <TextView
+                android:id="@+id/ingredientsTitulo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Ingredients and quantities:"
+                android:textSize="18sp"
+                android:textColor="#333333"
+                android:paddingBottom="8dp"
+                app:layout_constraintTop_toBottomOf="@id/instructionsEditText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Ingrediente 1 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ingredient1Layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@id/ingredientsTitulo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <EditText
+                    android:id="@+id/ingredient1EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:hint="Ingredient 1"
+                    android:padding="12dp"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/cantidadIngrediente1EditText"
+                    app:layout_constraintHorizontal_weight="1"/>
+
+                <EditText
+                    android:id="@+id/cantidadIngrediente1EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:hint="Quantity 1"
+                    android:padding="12dp"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ingredient1EditText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Ingrediente 2 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ingredient2Layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@id/ingredient1Layout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <EditText
+                    android:id="@+id/ingredient2EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:hint="Ingredient 2"
+                    android:padding="12dp"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/cantidadIngredient2EditText"
+                    app:layout_constraintHorizontal_weight="1"/>
+
+                <EditText
+                    android:id="@+id/cantidadIngredient2EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:hint="Quantity 2"
+                    android:padding="12dp"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ingredient2EditText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Ingrediente 3 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ingredient3Layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@id/ingredient2Layout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <EditText
+                    android:id="@+id/ingredient3EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:hint="Ingredient 3"
+                    android:padding="12dp"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/cantidadIngrediente3EditText"
+                    app:layout_constraintHorizontal_weight="1"/>
+
+                <EditText
+                    android:id="@+id/cantidadIngrediente3EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:hint="Quantity 3"
+                    android:padding="12dp"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ingredient3EditText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Ingrediente 4 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ingredient4Layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@id/ingredient3Layout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <EditText
+                    android:id="@+id/ingredient4EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:hint="Ingredient 4"
+                    android:padding="12dp"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/cantidadIngrediente4EditText"
+                    app:layout_constraintHorizontal_weight="1"/>
+
+                <EditText
+                    android:id="@+id/cantidadIngrediente4EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:hint="Quantity 4"
+                    android:padding="12dp"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ingredient4EditText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Ingrediente 5 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ingredient5Layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@id/ingredient4Layout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <EditText
+                    android:id="@+id/ingredient5EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:hint="Ingredient 5"
+                    android:padding="12dp"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/cantidadIngrediente5EditText"
+                    app:layout_constraintHorizontal_weight="1"/>
+
+                <EditText
+                    android:id="@+id/cantidadIngrediente5EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:hint="Quantity 5"
+                    android:padding="12dp"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ingredient5EditText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Ingrediente 6 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ingredient6Layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@id/ingredient5Layout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <EditText
+                    android:id="@+id/ingredient6EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:hint="Ingredient 6"
+                    android:padding="12dp"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/cantidadIngrediente6EditText"
+                    app:layout_constraintHorizontal_weight="1"/>
+
+                <EditText
+                    android:id="@+id/cantidadIngrediente6EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:hint="Quantity 6"
+                    android:padding="12dp"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ingredient6EditText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Ingrediente 7 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ingredient7Layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@id/ingredient6Layout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <EditText
+                    android:id="@+id/ingredient7EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:hint="Ingredient 7"
+                    android:padding="12dp"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/cantidadIngrediente7EditText"
+                    app:layout_constraintHorizontal_weight="1"/>
+
+                <EditText
+                    android:id="@+id/cantidadIngrediente7EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:hint="Quantity 7"
+                    android:padding="12dp"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ingredient7EditText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Ingrediente 8 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ingredient8Layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@id/ingredient7Layout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <EditText
+                    android:id="@+id/ingredient8EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:hint="Ingredient 8"
+                    android:padding="12dp"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/cantidadIngrediente8EditText"
+                    app:layout_constraintHorizontal_weight="1"/>
+
+                <EditText
+                    android:id="@+id/cantidadIngrediente8EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:hint="Quantity 8"
+                    android:padding="12dp"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ingredient8EditText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Campo para el vaso -->
+            <TextView
+                android:id="@+id/glassTitulo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Glass type:"
+                android:textSize="18sp"
+                android:textColor="#333333"
+                android:paddingBottom="8dp"
+                app:layout_constraintTop_toBottomOf="@id/ingredient8Layout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <EditText
+                android:id="@+id/glassEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:inputType="text"
+                android:hint="Example: Highball Glass"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@id/glassTitulo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+            <!-- Imagen -->
+            <TextView
+                android:id="@+id/imageTitulo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Load your cocktail image:"
+                android:textSize="18sp"
+                android:textColor="#333333"
+                android:paddingBottom="2dp"
+                app:layout_constraintTop_toBottomOf="@id/glassEditText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/chooseImageBtn"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <!-- Botón para subir imagen, es un acceso al almacenamiento del móvil -->
+            <ImageButton
+                android:id="@+id/chooseImageBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/subir"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Select image"
+                app:layout_constraintTop_toTopOf="@+id/imageTitulo"
+                app:layout_constraintStart_toEndOf="@+id/imageTitulo"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+
+
+            <!-- Imagen del cocktail, primero hay una de muestra y luego se carga la real -->
+            <ImageView
+                android:id="@+id/imagePreviewIP"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+
+                app:layout_constraintTop_toBottomOf="@id/imageTitulo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintWidth_percent="0.4"
+                app:layout_constraintDimensionRatio="1:1"
+                android:layout_marginBottom="16dp"/>
+
+
+
+
+
+
+
+            <!-- Botón para enviar la receta del cócktail -->
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send your cocktail"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@id/imagePreviewIP"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
